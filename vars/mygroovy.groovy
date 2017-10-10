@@ -1,9 +1,10 @@
 #!/usr/bin/env groovy
 
-//import POC
+import POC
 /**
  * Send notifications based on build status string
  */
+/*
 import java.io.*;
 class POC implements java.io.Serializable{
 int x, y, z;
@@ -22,6 +23,7 @@ int getz(){
 return z;
 }
 }
+*/
 
 def call(String buildStatus = 'STARTED'){
  println('shared libary called')
