@@ -29,7 +29,7 @@ def call(String buildStatus = 'STARTED'){
 }
 
 def FunctionExample(){
-  def poc = POC()
+  def poc = new POC()
   println poc.getX()
   println('Invoke different function')
 }
