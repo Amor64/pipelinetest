@@ -28,6 +28,7 @@ return z;
 def call(String buildStatus = 'STARTED'){
  println('shared libary called')
  FunctionExample()
+ return "Functionality Complete"
 }
 
 def FunctionExample(){
