@@ -5,4 +5,9 @@
  */
 def call(String buildStatus = 'STARTED'){
  println('shared libary called')
+ FunctionExample()
+}
+
+def FunctionExample(){
+  println('Invoke different function')
 }
