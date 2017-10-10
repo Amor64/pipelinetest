@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-class POC{
+class POC implements java.io.Serializable {
 int x, y, z;
 POC(){
 x = 2;
