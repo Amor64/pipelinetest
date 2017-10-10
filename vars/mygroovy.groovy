@@ -4,7 +4,7 @@
 /**
  * Send notifications based on build status string
  */
-
+import java.io.*;
 class POC implements java.io.Serializable{
 int x, y, z;
 POC(){
