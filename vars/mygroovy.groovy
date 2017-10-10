@@ -26,10 +26,10 @@ return z;
 def call(String buildStatus = 'STARTED'){
  println('shared libary called')
  FunctionExample()
- def poc = POC()
- println poc.getX()
 }
 
 def FunctionExample(){
+  def poc = POC()
+  println poc.getX()
   println('Invoke different function')
 }
