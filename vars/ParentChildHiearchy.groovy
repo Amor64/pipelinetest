@@ -1,13 +1,33 @@
 #!/usr/bin/env groovy
 import GroupInfo
 
- def Init(){
+def call(String stage = 'Install'){
+ println('shared libary called')
  Group []group = new Group[2]
+ Pipeline []pipeline = new Pipeline[2]
  for(int i=0; i<2; i++){
               group[i] = new Group()
-   }
-   fillPipelineInfo("Multihardware CI", group)
  }
+ fillPipelineInfo("Multihardware CI", group)
+ if (stage == "Install"){
+	 for(int j = 0; j<group.size(); j++){
+               List<Pipeline>pipelineList = group[j].pipelines
+              for(int i =0; i < pipelineList.size(); i++){
+                  println("InstallInfo : pipelineName : ${pipelineList[i].pipelineName} installCmd : ${group[j].InstallSteps} ipList : ${pipelineList[i].ipList} ")
+                  //Install(pipelineList[i].pipelineName, groupList[j].installCmdList, pipelineList[i].ipList)
+              }
+          }	
+ }else if (stage == "Test"){
+	  for(int j = 0; j<group.size(); j++){
+               List<Pipeline>pipelineList = group[j].pipelines
+              for(int i =0; i < pipelineList.size(); i++){
+                  println("TestRunInfo : TestCmd : ${pipelineList[i].testCmd} testParam : ${pipelineList[i].testParamList} ")
+              }
+          }
+ }else{
+	 println("Unknown stage")
+ }
+}
  
  def fillPipelineInfo(collectionName,Group[] group){
       group[0].groupName = "SMT Functional"
