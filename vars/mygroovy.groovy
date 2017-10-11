@@ -42,8 +42,8 @@ import GroupInfo
 
 def call(String stage = 'INSTALL'){
  println('shared libary called')
- Group []group = new Group[2]
- Pipeline []pipeline = new Pipeline[2]
+ def Group []group = new Group[2]
+ def Pipeline []pipeline = new Pipeline[2]
  for(int i=0; i<2; i++){
               group[i] = new Group()
  }
