@@ -70,7 +70,7 @@ import java.io.*;
 def call(String stage = 'INSTALL'){
  println('shared libary called')
  def Group []group = new Group[2]
- def Pipeline []pipeline = new Pipeline[2]
+ //def Pipeline []pipeline = new Pipeline[2]
  for(int i=0; i<2; i++){
               group[i] = new Group()
  }
@@ -100,7 +100,7 @@ def call(String stage = 'INSTALL'){
 		  group[0].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_smt --role smtcore --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
 		  group[0].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_smt --role pyunit --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
 		  group[0].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_smt --role pyunit --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
-		  Pipeline[] pipeline = new Pipeline[2]
+		  def Pipeline[] pipeline = new Pipeline[2]
 		  for(int index = 0; index < 2; index++){
 		  pipeline[index] = new Pipeline()
 		  }
@@ -126,7 +126,7 @@ def call(String stage = 'INSTALL'){
 		  group[1].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_xbc --role smtcore --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
 		  group[1].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_xbc --role pyunit --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
 		  group[1].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_xbc --role pyunit --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
-		  pipeline = new Pipeline[3]
+		  def pipeline = new Pipeline[3]
 		  for(int index = 0; index < 3; index++){
 		  pipeline[index] = new Pipeline()
 		  }
