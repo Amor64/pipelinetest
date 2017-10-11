@@ -38,7 +38,6 @@ def FunctionExample(){
 }
 */
 
-#!/usr/bin/env groovy
 import GroupInfo
 
 def call(String stage = 'INSTALL'){
