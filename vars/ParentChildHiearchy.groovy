@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 import GroupInfo
 
-def call(String stage = 'Install'){
+def call(String stage){
  println('shared libary called')
  Group []group = new Group[2]
  Pipeline []pipeline = new Pipeline[2]
