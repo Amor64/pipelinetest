@@ -126,7 +126,7 @@ def call(String stage = 'INSTALL'){
 		  group[1].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_xbc --role smtcore --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
 		  group[1].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_xbc --role pyunit --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
 		  group[1].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_xbc --role pyunit --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
-		  def pipeline = new Pipeline[3]
+		  pipeline = new Pipeline[3]
 		  for(int index = 0; index < 3; index++){
 		  pipeline[index] = new Pipeline()
 		  }
