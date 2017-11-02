@@ -37,26 +37,6 @@ def call(String stage = 'INSTALL'){
               group[i] = new Group()
  }
  fillPipelineInfo("Multihardware CI", group)
-/*
- if (stage == "INSTALL"){
-	 for(int j = 0; j<group.size(); j++){
-               List<Pipeline>pipelineList = group[j].pipelines
-              for(int i =0; i < pipelineList.size(); i++){
-                  println("InstallInfo : pipelineName : ${pipelineList[i].pipelineName} installCmd : ${group[j].InstallSteps} ipList : ${pipelineList[i].ipList} ")
-                  //Install(pipelineList[i].pipelineName, groupList[j].installCmdList, pipelineList[i].ipList)
-              }
-          }	
- }else if (stage == "TEST"){
-	  for(int j = 0; j<group.size(); j++){
-               List<Pipeline>pipelineList = group[j].pipelines
-              for(int i =0; i < pipelineList.size(); i++){
-                  println("TestRunInfo : TestCmd : ${pipelineList[i].testCmd} testParam : ${pipelineList[i].testParamList} ")
-              }
-          }
- }else{
-	 println("Unknown stage")
- }
- */
 	return group
 }
  
