@@ -37,6 +37,7 @@ def call(String stage = 'INSTALL'){
               group[i] = new Group()
  }
  fillPipelineInfo("Multihardware CI", group)
+/*
  if (stage == "INSTALL"){
 	 for(int j = 0; j<group.size(); j++){
                List<Pipeline>pipelineList = group[j].pipelines
@@ -55,6 +56,8 @@ def call(String stage = 'INSTALL'){
  }else{
 	 println("Unknown stage")
  }
+ */
+	return group
 }
  
  def fillPipelineInfo(collectionName,Group[] group){
