@@ -1,7 +1,5 @@
 #!/usr/bin/env groovy
-
-//import GroupInfo
-import java.io.*;
+            import java.io.*;
             class Group implements java.io.Serializable {
             String groupName
             List<String> InstallSteps = []
@@ -18,34 +16,33 @@ import java.io.*;
             }
         }
         
-     class Pipeline implements java.io.Serializable{
-        String pipelineName
-        String inProgress
-        List<String>ipList = []
-        List<String> testCmd = []
-        List<String> testParamList = []
-        String toString() {
-            "($pipelineName $isProgress $testCmd $testParam)"
+        class Pipeline implements java.io.Serializable{
+            String pipelineName
+            String inProgress
+            List<String>ipList = []
+            List<String> testCmd = []
+            List<String> testParamList = []
+            String toString() {
+                "($pipelineName $isProgress $testCmd $testParam)"
+            }
         }
-    }
 
-def call(String stage = 'INSTALL'){
- println('shared libary called')
- def Group []group = new Group[2]
- //def Pipeline []pipeline = new Pipeline[2]
- for(int i=0; i<2; i++){
+ 		def call(String stage = 'INSTALL'){
+            println('shared libary called')
+            Group []group = new Group[2]
+            for(int i=0; i<2; i++){
               group[i] = new Group()
- }
- fillPipelineInfo("Multihardware CI", group)
-	return group
-}
- 
- def fillPipelineInfo(collectionName,Group[] group){
-      group[0].groupName = "SMT Functional"
+            }
+            fillPipelineInfo("Multihardware CI", group)
+            return group
+            }
+
+ 		def fillPipelineInfo(collectionName, Group[] group){
+		  group[0].groupName = "SMT Functional"
 		  group[0].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_smt --role smtcore --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
 		  group[0].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_smt --role pyunit --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
 		  group[0].InstallSteps.add("python /a/lib/pepper/command_line/command_line/RunPepper.py --system sushil_smt --role pyunit --run_play --qs_args CURRENT_ARCHIVE_ROOT:/ghostcache2/smtcore-trunk/smtcore")
-		  def Pipeline[] pipeline = new Pipeline[2]
+		  Pipeline[] pipeline = new Pipeline[2]
 		  for(int index = 0; index < 2; index++){
 		  pipeline[index] = new Pipeline()
 		  }
@@ -61,8 +58,8 @@ def call(String stage = 'INSTALL'){
 		  group[0] << pipeline[0]
 		  pipeline[1].pipelineName = "slow"
 		  pipeline[1].ipList.add("172.24.52.39")
-		  pipeline[1].ipList.add("172.24.52.47")
-		  pipeline[1].ipList.add("172.24.52.18")
+		  pipeline[1].ipList.add("172.24.52.35")
+		  pipeline[1].ipList.add("172.24.52.36")
 		  pipeline[1].inProgress = "False"
 		  pipeline[1].testCmd.add("python testrunner.py")
 		  pipeline[1].testParamList.add("-ts ../smtcore_test/testsuite --include_category=smt, slow --exclude_categoty=in_progress")
@@ -86,17 +83,18 @@ def call(String stage = 'INSTALL'){
 		  pipeline[1].pipelineName = "Functional X7"
 		  pipeline[1].ipList.add("172.24.52.51")
 		  pipeline[1].ipList.add("198.18.122.61")
-		  pipeline[1].ipList.add("172.24.52.35")
+		  pipeline[1].ipList.add("172.24.52.47")
 		  pipeline[1].inProgress = "False"
 		  pipeline[1].testCmd.add("python testrunner.py")
 		  pipeline[1].testParamList.add("-ts ../smtcore_test/testsuite --include_category=xbc --exclude_categoty=in_progress")
 		  group[1] << pipeline[1]
 		  pipeline[2].pipelineName = "slow"
 		  pipeline[2].ipList.add("172.24.52.23")
-		  pipeline[2].ipList.add("172.24.52.36")
+		  pipeline[2].ipList.add("172.24.52.18")
 		  pipeline[2].ipList.add("172.24.52.37")
 		  pipeline[2].inProgress = "False"
 		  pipeline[2].testCmd.add("python testrunner.py")
 		  pipeline[2].testParamList.add("-ts ../smtcore_test/testsuite --include_category=xbc, slow --exclude_categoty=in_progress")
 		  group[1] << pipeline[2]
- }
+
+ 		}
